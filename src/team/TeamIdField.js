@@ -1,6 +1,9 @@
 import axios from "axios";
 import React, { useState } from "react";
 
+import './TeamIdField.css';
+import TeamDetails from './TeamDetails.js';
+
 import Form from 'react-bootstrap/Form';
 
 function TeamIdField() {
@@ -37,9 +40,11 @@ function TeamIdField() {
                     <Form.Control type='text' name='teamID' onChange={handleTeamIdChange} placeholder='Enter your Team ID' />
                 </Form.Group>
             </form>
+
+            { team.id > 0 ? <TeamDetails teamDetails={team}/> : null }
+
         </div>
     );
 }
-
 
 export default TeamIdField;
