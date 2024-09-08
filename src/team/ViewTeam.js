@@ -17,7 +17,7 @@ function ViewTeam() {
   };
 
   const submitForm = async (event) => {
-		event.preventDefault()
+		event.preventDefault();
 		const form = event.currentTarget;
 
 		// Check if teamId is a number
@@ -50,13 +50,27 @@ function ViewTeam() {
 				response = await axios.get(`http://localhost:8080/team/${teamId}`);
 			} catch (error) {
 				console.log('XXXXX massive error: ', error);
+
+        // TODO: add message on screen stating no team was found
+        if (error.status == 404) {
+          console.log('No team was found for id ', teamId);
+        }
+
+        event.preventDefault();
+        event.stopPropagation();
+        return;
 			}
 			
 			// Clear errors
 			setError('');
 
-			let team = response.data
-			setTeam(team);
+      console.log('AAAAA response.status: ', response.status);
+      console.log('AAAAA response.data: ', response.data);
+
+      if (response.data) {
+        let team = response.data;
+        setTeam(team);
+      }
 
 			console.log("XXXXX team: ", team);
     } else {
