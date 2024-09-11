@@ -1,66 +1,66 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-import "./ViewTeam.css";
-import TeamDetails from "./TeamDetails.js";
+import "./ViewLeague.css";
+import LeagueDetails from "./LeagueDetails.js";
 
 import Form from "react-bootstrap/Form";
 
-function ViewTeam() {
+function ViewLeague() {
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState('');
-  const [team, setTeam] = useState({});
-  const [teamId, setTeamId] = useState(0);
+  const [league, setLeague] = useState({});
+  const [leagueId, setLeagueId] = useState(0);
 
-  const handleTeamIdChange = (event) => {
-    setTeamId(event.target.value);
+  const handleLeagueIdChange = (event) => {
+    setTLeagueId(event.target.value);
   };
 
   const submitForm = async (event) => {
 		event.preventDefault();
 		const form = event.currentTarget;
 
-		// Check if teamId is a number
-    if (!/^\d+$/.test(teamId) || teamId < 1) {
-			console.log('XXXXX teamId: ', teamId);
+		// Check if leagueId is a number
+    if (!/^\d+$/.test(leagueId) || leagueId < 1) {
+			console.log('XXXXX leagueId: ', leagueId);
 			console.log('XXXXX checkValidity false')
-			setError('Invalid teamId.');
+			setError('Invalid leagueId.');
 			setValidated(false);
       event.preventDefault();
       event.stopPropagation();
 			return;
 		}
-		
+
 		setValidated(true);
 
-    setTeamId(event.target.value);
+    setLeagueId(event.target.value);
 
     event.preventDefault();
-    console.log("XXXXX teamId: ", teamId);
+    console.log("XXXXX leagueId: ", leagueId);
     console.log("XXXXX validated: ", validated);
 
     let response;
 
-		console.log('ZZZZZ teamId: ', teamId);
-		console.log('ZZZZZ Number.isInteger(teamId): ', Number.isInteger(+teamId));
+		console.log('ZZZZZ leagueId: ', leagueId);
+		console.log('ZZZZZ Number.isInteger(leagueId): ', Number.isInteger(+leagueId));
 
-		// needs to be +teamId so the element is reverted back to a number
-    if (teamId && Number.isInteger(+teamId)) {
+		// needs to be +leagueId so the element is reverted back to a number
+    if (leagueId && Number.isInteger(+leagueId)) {
 			try {
-				response = await axios.get(`http://localhost:8080/team/${teamId}`);
+				response = await axios.get(`http://localhost:8080/league/${leagueId}`);
 			} catch (error) {
 				console.log('XXXXX massive error: ', error);
 
-        // TODO: add message on screen stating no team was found
+        // TODO: add message on screen stating no league was found
         if (error.status == 404) {
-          console.log('No team was found for id ', teamId);
+          console.log('No league was found for id ', leagueId);
         }
 
         event.preventDefault();
         event.stopPropagation();
         return;
 			}
-			
+
 			// Clear errors
 			setError('');
 
@@ -68,13 +68,13 @@ function ViewTeam() {
       console.log('AAAAA response.data: ', response.data);
 
       if (response.data) {
-        let team = response.data;
-        setTeam(team);
+        let league = response.data;
+        setLeague(league);
       }
 
-			console.log("XXXXX team: ", team);
+			console.log("XXXXX league: ", league);
     } else {
-			console.log('XXXXX teamId is not an integer');
+			console.log('XXXXX leagueId is not an integer');
 		}
 
   };
