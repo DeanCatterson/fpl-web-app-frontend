@@ -13,7 +13,7 @@ function ViewLeague() {
   const [leagueId, setLeagueId] = useState(0);
 
   const handleLeagueIdChange = (event) => {
-    setTLeagueId(event.target.value);
+    setLeagueId(event.target.value);
   };
 
   const submitForm = async (event) => {
@@ -89,8 +89,8 @@ function ViewLeague() {
           <Form.Control
             type="text"
             name="teamID"
-            onChange={handleTeamIdChange}
-            placeholder="Enter your Team ID"
+            onChange={handleLeagueIdChange}
+            placeholder="Enter your League ID"
 						isInvalid={!!error}
 						required
           />
@@ -100,9 +100,9 @@ function ViewLeague() {
         </Form.Group>
       </Form>
 
-      { team.id > 0 ? <TeamDetails teamDetails={team} /> : null }
+      { league.id > 0 ? <LeagueDetails leagueDetails={league} /> : null }
     </div>
   );
 }
 
-export default ViewTeam;
+export default ViewLeague;
