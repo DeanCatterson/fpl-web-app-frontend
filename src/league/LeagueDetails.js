@@ -11,8 +11,25 @@ function LeagueDetails({ leagueDetails }) {
 
     return (
 			<Table striped bordered hover>
-                // TODO populate this table with the list of teams
-			</Table>
+				<thead>
+					<tr>
+						<th>id</th>
+						<th>Team Name</th>
+						<th>Manager Name</th>
+						<th>Overall Points</th>
+						<th>Overall Rank</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{leagueDetails.id}</td>
+                        <td>{leagueDetails.managerName}</td>
+						<td>{leagueDetails.teamName}</td>
+						<td>{leagueDetails.points}</td>
+						<td>{leagueDetails.overallRank}</td>
+					</tr>
+				</tbody>			
+            </Table>
     );
 }
 

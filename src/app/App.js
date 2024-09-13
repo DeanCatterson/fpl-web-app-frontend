@@ -15,13 +15,6 @@ function App() {
     setView((prevView) => (prevView === "league" ? "team" : "league"));
   };
 
-  // function handleViewChange() {
-  //   console.log('XXXXX view: ', view)
-
-  //   if (view === 'team') {
-  //     setView('league');
-  //   } 
-  // };
 
   // TODO: add dropdown for user to select whether they want to look at teams or leagues
   return (
