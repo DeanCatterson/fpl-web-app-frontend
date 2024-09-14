@@ -81,21 +81,21 @@ function ViewLeague() {
 
   return (
     <div>
-      <h1>Enter your team id</h1>
+      <h1>Enter your league id</h1>
 
 			<Form noValidate validated={validated} onSubmit={submitForm}>
-        <Form.Group className="teamIdForm">
-          <Form.Label>Team ID</Form.Label>
+        <Form.Group className="leagueIdForm">
+          <Form.Label>League ID</Form.Label>
           <Form.Control
             type="text"
-            name="teamID"
+            name="leagueID"
             onChange={handleLeagueIdChange}
             placeholder="Enter your League ID"
 						isInvalid={!!error}
 						required
           />
 					<Form.Control.Feedback type="invalid">
-            Please enter a valid team id.
+            Please enter a valid league id.
           </Form.Control.Feedback>
         </Form.Group>
       </Form>

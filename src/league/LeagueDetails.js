@@ -21,15 +21,19 @@ function LeagueDetails({ leagueDetails }) {
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td>{leagueDetails.id}</td>
-                        <td>{leagueDetails.managerName}</td>
-						<td>{leagueDetails.teamName}</td>
-						<td>{leagueDetails.points}</td>
-						<td>{leagueDetails.overallRank}</td>
-					</tr>
+					{leagueDetails.map(team => {
+						return (
+							<tr>
+								<td>{team.id}</td>
+								<td>{team.managerName}</td>
+								<td>{team.teamName}</td>
+								<td>{team.points}</td>
+								<td>{team.overallRank}</td>
+							</tr>
+						);
+					})}
 				</tbody>			
-            </Table>
+			</Table>
     );
 }
 
