@@ -7,6 +7,9 @@ import LeagueDetails from "./LeagueDetails.js";
 import Form from "react-bootstrap/Form";
 
 function ViewLeague() {
+
+  // TODO: add a call in here for each team to retrieve their chip info
+  
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState('');
   const [league, setLeague] = useState({});
@@ -100,7 +103,7 @@ function ViewLeague() {
         </Form.Group>
       </Form>
 
-      { league.id > 0 ? <LeagueDetails leagueDetails={league} /> : null }
+      { league.length > 0 ? <LeagueDetails leagueDetails={league} /> : null }
     </div>
   );
 }
