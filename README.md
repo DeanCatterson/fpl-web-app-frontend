@@ -1,3 +1,8 @@
+This project acts as the user interface for my fantasy premier league helper app. It retrieves data from the fpl api via my fpl-web-app-backend project.
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
