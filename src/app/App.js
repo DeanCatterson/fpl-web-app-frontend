@@ -18,12 +18,13 @@ function App() {
 
   // TODO: add dropdown for user to select whether they want to look at teams or leagues
   return (
-    <div>
-      <h1>FPL Web App Frontend</h1>
-      <Button onClick={ toggleView }>
+    <div className="applicationContainer">
+      <h1 className="applicationTitle">FPL Web App Frontend</h1>
+
+      <Button className="viewSelector" onClick={ toggleView }>
         Toggle View
       </Button>
-      { view === 'team' ? <ViewTeam /> : <ViewLeague />  }
+      { view === 'team' ? <ViewTeam className="teamViewContainer"/> : <ViewLeague className="leagueViewContainer"/>  }
     </div>
   );
 }

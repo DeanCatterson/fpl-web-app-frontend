@@ -83,7 +83,7 @@ function ViewLeague() {
   };
 
   return (
-    <div>
+    <div className="leagueIdContainer">
       <h1>Enter your league id</h1>
 
 			<Form noValidate validated={validated} onSubmit={submitForm}>

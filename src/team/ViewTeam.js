@@ -80,7 +80,7 @@ function ViewTeam() {
   };
 
   return (
-    <div>
+    <div className="teamIdContainer">
       <h1>Enter your team id</h1>
 
 			<Form noValidate validated={validated} onSubmit={submitForm}>
