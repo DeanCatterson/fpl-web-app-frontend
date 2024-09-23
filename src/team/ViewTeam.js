@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-import "./ViewTeam.css";
+import "./Team.css";
 import TeamDetails from "./TeamDetails.js";
 
 import Form from "react-bootstrap/Form";
@@ -18,7 +18,6 @@ function ViewTeam() {
 
   const submitForm = async (event) => {
 		event.preventDefault();
-		const form = event.currentTarget;
 
 		// Check if teamId is a number
     if (!/^\d+$/.test(teamId) || teamId < 1) {
@@ -52,7 +51,7 @@ function ViewTeam() {
 				console.log('XXXXX massive error: ', error);
 
         // TODO: add message on screen stating no team was found
-        if (error.status == 404) {
+        if (error.status === 404) {
           console.log('No team was found for id ', teamId);
         }
 
@@ -81,7 +80,7 @@ function ViewTeam() {
 
   return (
     <div className="teamIdContainer">
-      <h1>Enter your team id</h1>
+      <p className="enterTeamNamePrompt">Enter your team id</p>
 
 			<Form noValidate validated={validated} onSubmit={submitForm}>
         <Form.Group className="teamIdForm">
@@ -89,6 +88,7 @@ function ViewTeam() {
           <Form.Control
             type="text"
             name="teamID"
+            className="teamIdField"
             onChange={handleTeamIdChange}
             placeholder="Enter your Team ID"
 						isInvalid={!!error}
@@ -100,7 +100,7 @@ function ViewTeam() {
         </Form.Group>
       </Form>
 
-      { team.id > 0 ? <TeamDetails teamDetails={team} /> : null }
+      { team.id > 0 ? <TeamDetails className="teamDetailsTable" teamDetails={team} /> : null }
     </div>
   );
 }

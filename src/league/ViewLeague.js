@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-import "./ViewLeague.css";
+import "./League.css";
 import LeagueDetails from "./LeagueDetails.js";
 
 import Form from "react-bootstrap/Form";
@@ -21,7 +21,6 @@ function ViewLeague() {
 
   const submitForm = async (event) => {
 		event.preventDefault();
-		const form = event.currentTarget;
 
 		// Check if leagueId is a number
     if (!/^\d+$/.test(leagueId) || leagueId < 1) {
@@ -55,7 +54,7 @@ function ViewLeague() {
 				console.log('XXXXX massive error: ', error);
 
         // TODO: add message on screen stating no league was found
-        if (error.status == 404) {
+        if (error.status === 404) {
           console.log('No league was found for id ', leagueId);
         }
 
@@ -84,7 +83,7 @@ function ViewLeague() {
 
   return (
     <div className="leagueIdContainer">
-      <h1>Enter your league id</h1>
+      <p className="enterTeamNamePrompt">Enter your league id</p>
 
 			<Form noValidate validated={validated} onSubmit={submitForm}>
         <Form.Group className="leagueIdForm">
@@ -92,6 +91,7 @@ function ViewLeague() {
           <Form.Control
             type="text"
             name="leagueID"
+            className="leagueIdField"
             onChange={handleLeagueIdChange}
             placeholder="Enter your League ID"
 						isInvalid={!!error}
@@ -103,7 +103,7 @@ function ViewLeague() {
         </Form.Group>
       </Form>
 
-      { league.length > 0 ? <LeagueDetails leagueDetails={league} /> : null }
+      { league.length > 0 ? <LeagueDetails className="leagueDetailsTable" leagueDetails={league} /> : null }
     </div>
   );
 }

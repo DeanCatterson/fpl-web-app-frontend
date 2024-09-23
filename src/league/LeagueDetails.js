@@ -1,4 +1,4 @@
-import './LeagueDetails.css';
+import './League.css';
 
 import tripleCaptainIcon from '../assets/chip-icons/3xcInactive-120.png';
 import benchBoostIcon from '../assets/chip-icons/bboostInactive-120.png';
