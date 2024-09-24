@@ -27,7 +27,7 @@ root {
 }
 
 .applicationContainer {
-    padding: 25px 35px;
+  margin: 5% 15%;
 }
 
 .applicationTitle {
@@ -40,4 +40,18 @@ root {
     display: block;
     margin: 20px auto;
     width: 25%;
+    font-family: monospace;
+    font-size: x-large;
+}
+
+
+/* Table stles */
+
+.numericCell {
+  text-align: center;
+}
+
+.imageCell {
+  text-align: center;
+  align-content: center;
 }

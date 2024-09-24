@@ -9,20 +9,20 @@ function TeamDetails({ teamDetails }) {
 			<Table striped bordered hover>
 				<thead>
 					<tr>
-						<th>id</th>
+						<th className='numericCell'>id</th>
 						<th>Team Name</th>
 						<th>Manager Name</th>
-						<th>Overall Points</th>
-						<th>Overall Rank</th>
+						<th className='numericCell'>Overall Points</th>
+						<th className='numericCell'>Overall Rank</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td>{teamDetails.id}</td>
+						<td className='numericCell'>{teamDetails.id}</td>
 						<td>{teamDetails.teamName}</td>
 						<td>{teamDetails.managerName}</td>
-						<td>{teamDetails.points}</td>
-						<td>{teamDetails.rank}</td>
+						<td className='numericCell'>{teamDetails.points}</td>
+						<td className='numericCell'>{teamDetails.rank}</td>
 					</tr>
 				</tbody>
 			</Table>

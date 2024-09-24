@@ -5,6 +5,8 @@ import './App.css';
 import ViewTeam from '../team/ViewTeam';
 import ViewLeague from '../league/ViewLeague';
 import { Button } from "react-bootstrap";
+import { ToggleSlider }  from "react-toggle-slider";
+
 
 function App() {
 
@@ -21,9 +23,11 @@ function App() {
     <div className="applicationContainer">
       <h1 className="applicationTitle">FPL Web App Frontend</h1>
 
-      <Button className="viewSelector" onClick={ toggleView }>
-        Toggle View
-      </Button>
+      <div className="viewSelector">
+        <p className="enterTeamNamePrompt">Toggle view</p>
+        <ToggleSlider className="viewSelector" onToggle={ toggleView }/>
+      </div>
+
       { view === 'team' ? <ViewTeam className="teamViewContainer"/> : <ViewLeague className="leagueViewContainer"/>  }
     </div>
   );

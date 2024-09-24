@@ -18,22 +18,22 @@ function LeagueDetails({ leagueDetails }) {
 			<Table striped bordered hover>
 				<thead>
 					<tr>
-						<th>Rank</th>
+						<th className='numericCell'>Rank</th>
 						<th>Manager Name</th>
 						<th>Team Name</th>
-						<th>Overall Points</th>
-						<th>Chips Used</th>
+						<th className='numericCell'>Overall Points</th>
+						<th className='imageCell'>Chips Used</th>
 					</tr>
 				</thead>
 				<tbody>
 					{leagueDetails.map(team => {
 						return (
 							<tr>
-								<td>{team.rank}</td>
+								<td className='numericCell'>{team.rank}</td>
 								<td>{team.managerName}</td>
 								<td>{team.teamName}</td>
-								<td>{team.points}</td>
-								<td>{
+								<td className='numericCell'>{team.points}</td>
+								<td className='imageCell'>{
 									<div>
 										<img className="chipIconImages" src={tripleCaptainIcon} alt="tripleCaptainIcon" /> 
 										<img className="chipIconImages" src={benchBoostIcon} alt="benchBoostIcon" /> 
