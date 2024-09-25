@@ -18,11 +18,11 @@ function App() {
   };
 
 
-  // TODO: add dropdown for user to select whether they want to look at teams or leagues
   return (
     <div className="applicationContainer">
       <h1 className="applicationTitle">FPL Web App Frontend</h1>
 
+      {/* // TODO: fix styles for toggle & prompt */}
       <div className="viewSelector">
         <p className="enterTeamNamePrompt">Toggle view</p>
         <ToggleSlider className="viewSelector" onToggle={ toggleView }/>
