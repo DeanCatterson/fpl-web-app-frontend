@@ -28,6 +28,7 @@ function App() {
         <ToggleSlider className="viewSelector" onToggle={ toggleView }/>
       </div>
 
+      {/* // TODO rework this logic to allow for more than two views */}
       { view === 'team' ? <ViewTeam className="teamViewContainer"/> : <ViewLeague className="leagueViewContainer"/>  }
     </div>
   );
