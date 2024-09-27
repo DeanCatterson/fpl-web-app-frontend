@@ -8,6 +8,7 @@ import { Button } from "react-bootstrap";
 import { ToggleSlider }  from "react-toggle-slider";
 
 
+
 function App() {
 
   const [view, setView] = useState('league');
@@ -17,6 +18,14 @@ function App() {
     setView((prevView) => (prevView === "league" ? "team" : "league"));
   };
 
+  function renderSwitch(view) {
+    switch(view) {
+      case 'team':
+        return <ViewTeam className="teamViewContainer"/>;
+      default:
+        return <ViewLeague className="leagueViewContainer"/>;
+    }
+  }
 
   return (
     <div className="applicationContainer">
@@ -28,8 +37,7 @@ function App() {
         <ToggleSlider className="viewSelector" onToggle={ toggleView }/>
       </div>
 
-      {/* // TODO rework this logic to allow for more than two views */}
-      { view === 'team' ? <ViewTeam className="teamViewContainer"/> : <ViewLeague className="leagueViewContainer"/>  }
+      {renderSwitch(view)}
     </div>
   );
 }
