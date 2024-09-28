@@ -32,10 +32,13 @@ function App() {
       <h1 className="applicationTitle">FPL Web App Frontend</h1>
 
       {/* // TODO: fix styles for toggle & prompt */}
-      <div className="viewSelector">
-        <p className="enterTeamNamePrompt">Toggle view</p>
-        <ToggleSlider className="viewSelector" onToggle={ toggleView }/>
+      <div className="col-half-width">
+        <div className="viewSelector">
+          <p className="viewSelectorLabel">Toggle view</p>
+          <ToggleSlider className="viewSelector" onToggle={ toggleView }/>
+        </div>
       </div>
+
 
       {renderSwitch(view)}
     </div>

@@ -36,16 +36,25 @@ root {
     font-family: monospace;
 }
 
+.viewSelectorLabel {
+
+}
+
 .viewSelector {
-    display: block;
-    margin: 20px auto;
-    width: 25%;
-    font-family: monospace;
-    font-size: x-large;
+  display: inline-block !important;
+  margin: 20px auto;
+  vertical-align: top;
+  width: 25%;
+  font-family: monospace;
+  font-size: x-large;
+}
+
+.col-half-width {
+  width: 50%;
 }
 
 
-/* Table stles */
+/* Table styles */
 
 .numericCell {
   text-align: center;
