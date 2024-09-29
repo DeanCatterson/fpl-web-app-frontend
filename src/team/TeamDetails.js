@@ -6,7 +6,7 @@ import Table from 'react-bootstrap/Table';
 
 function TeamDetails({ teamDetails }) {
     return (
-			<Table striped bordered hover>
+			<Table striped bordered hover className='teamDetailsTable'>
 				<thead>
 					<tr>
 						<th className='numericCell'>id</th>

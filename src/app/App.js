@@ -29,6 +29,11 @@ function App() {
 
   return (
     <div className="applicationContainer">
+
+      {/* TODO: create header featuring logo, nav etc */}
+      <header className="header"></header>
+
+      <body className="body">
       <h1 className="applicationTitle">FPL Web App Frontend</h1>
 
       {/* // TODO: fix styles for toggle & prompt */}
@@ -41,6 +46,9 @@ function App() {
 
 
       {renderSwitch(view)}
+      </body>
+
+      <footer className="footer"></footer>
     </div>
   );
 }
