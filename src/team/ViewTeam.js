@@ -11,6 +11,8 @@ function ViewTeam() {
   const [error, setError] = useState('');
   const [team, setTeam] = useState({});
   const [teamId, setTeamId] = useState(0);
+  const [chips, setChips] = useState([]);
+
 
   const handleTeamIdChange = (event) => {
     setTeamId(event.target.value);
@@ -46,7 +48,7 @@ function ViewTeam() {
 		// needs to be +teamId so the element is reverted back to a number
     if (teamId && Number.isInteger(+teamId)) {
 			try {
-				response = await axios.get(`http://localhost:8080/team/${teamId}`);
+				response = await axios.get(`http://localhost:8080/team/detailed/${teamId}`);
 			} catch (error) {
 				console.log('XXXXX massive error: ', error);
 
@@ -55,6 +57,7 @@ function ViewTeam() {
           console.log('No team was found for id ', teamId);
         }
 
+        console.log('XXXXX response: ', response);
         event.preventDefault();
         event.stopPropagation();
         return;
@@ -66,9 +69,18 @@ function ViewTeam() {
       console.log('AAAAA response.status: ', response.status);
       console.log('AAAAA response.data: ', response.data);
 
-      if (response.data) {
-        let team = response.data;
+      // response.data.team contains only basic information on that team.
+      if (response.data && response.data.team) {
+        let team = response.data.team;
         setTeam(team);
+      }
+
+      if (response.data && response.data.history && response.data.history.chips) {
+        let chips = response.data.history.chips;
+        console.log('YYYYY chips: ', chips);
+
+        chips = chips;
+        setChips(chips);
       }
 
 			console.log("XXXXX team: ", team);
@@ -100,7 +112,7 @@ function ViewTeam() {
         </Form.Group>
       </Form>
 
-      { team.id > 0 ? <TeamDetails className="teamDetailsTable" teamDetails={team} /> : null }
+      { team.id > 0 ? <TeamDetails className="teamDetailsTable" teamDetails={team} chips={chips}/> : null }
     </div>
   );
 }

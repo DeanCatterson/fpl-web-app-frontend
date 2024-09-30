@@ -46,8 +46,9 @@ function ViewLeague() {
 		console.log('ZZZZZ leagueId: ', leagueId);
 		console.log('ZZZZZ Number.isInteger(leagueId): ', Number.isInteger(+leagueId));
 
-		// needs to be +leagueId so the element is reverted back to a number
+		// Needs to be +leagueId so the element is reverted back to a number
     if (leagueId && Number.isInteger(+leagueId)) {
+      // TODO: get list of all teamId's in the league, and do a DetailedTeamHistory search for each one.
 			try {
 				response = await axios.get(`http://localhost:8080/league/${leagueId}`);
 			} catch (error) {

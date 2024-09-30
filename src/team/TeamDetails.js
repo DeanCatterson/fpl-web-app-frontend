@@ -4,7 +4,7 @@ import React from "react";
 
 import Table from 'react-bootstrap/Table';
 
-function TeamDetails({ teamDetails }) {
+function TeamDetails({ teamDetails, chips }) {
     return (
 			<Table striped bordered hover className='teamDetailsTable'>
 				<thead>
@@ -14,6 +14,7 @@ function TeamDetails({ teamDetails }) {
 						<th>Manager Name</th>
 						<th className='numericCell'>Overall Points</th>
 						<th className='numericCell'>Overall Rank</th>
+						<th className='numericCell'>Chips used</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -23,6 +24,7 @@ function TeamDetails({ teamDetails }) {
 						<td>{teamDetails.managerName}</td>
 						<td className='numericCell'>{teamDetails.points}</td>
 						<td className='numericCell'>{teamDetails.rank}</td>
+						<td className='numericCell'>{chips.length}</td>
 					</tr>
 				</tbody>
 			</Table>
