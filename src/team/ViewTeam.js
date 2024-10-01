@@ -23,8 +23,6 @@ function ViewTeam() {
 
 		// Check if teamId is a number
     if (!/^\d+$/.test(teamId) || teamId < 1) {
-			console.log('XXXXX teamId: ', teamId);
-			console.log('XXXXX checkValidity false')
 			setError('Invalid teamId.');
 			setValidated(false);
       event.preventDefault();
@@ -37,21 +35,14 @@ function ViewTeam() {
     setTeamId(event.target.value);
 
     event.preventDefault();
-    console.log("XXXXX teamId: ", teamId);
-    console.log("XXXXX validated: ", validated);
 
     let response;
-
-		console.log('ZZZZZ teamId: ', teamId);
-		console.log('ZZZZZ Number.isInteger(teamId): ', Number.isInteger(+teamId));
 
 		// needs to be +teamId so the element is reverted back to a number
     if (teamId && Number.isInteger(+teamId)) {
 			try {
 				response = await axios.get(`http://localhost:8080/team/detailed/${teamId}`);
 			} catch (error) {
-				console.log('XXXXX massive error: ', error);
-
         // TODO: add message on screen stating no team was found
         if (error.status === 404) {
           console.log('No team was found for id ', teamId);
@@ -79,11 +70,9 @@ function ViewTeam() {
         let chips = response.data.history.chips;
         console.log('YYYYY chips: ', chips);
 
-        chips = chips;
         setChips(chips);
       }
 
-			console.log("XXXXX team: ", team);
     } else {
 			console.log('XXXXX teamId is not an integer');
 		}

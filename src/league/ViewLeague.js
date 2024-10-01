@@ -24,8 +24,6 @@ function ViewLeague() {
 
 		// Check if leagueId is a number
     if (!/^\d+$/.test(leagueId) || leagueId < 1) {
-			console.log('XXXXX leagueId: ', leagueId);
-			console.log('XXXXX checkValidity false')
 			setError('Invalid leagueId.');
 			setValidated(false);
       event.preventDefault();
@@ -38,13 +36,8 @@ function ViewLeague() {
     setLeagueId(event.target.value);
 
     event.preventDefault();
-    console.log("XXXXX leagueId: ", leagueId);
-    console.log("XXXXX validated: ", validated);
 
     let response;
-
-		console.log('ZZZZZ leagueId: ', leagueId);
-		console.log('ZZZZZ Number.isInteger(leagueId): ', Number.isInteger(+leagueId));
 
 		// Needs to be +leagueId so the element is reverted back to a number
     if (leagueId && Number.isInteger(+leagueId)) {
@@ -52,7 +45,6 @@ function ViewLeague() {
 			try {
 				response = await axios.get(`http://localhost:8080/league/${leagueId}`);
 			} catch (error) {
-				console.log('XXXXX massive error: ', error);
 
         // TODO: add message on screen stating no league was found
         if (error.status === 404) {
@@ -75,7 +67,6 @@ function ViewLeague() {
         setLeague(league);
       }
 
-			console.log("XXXXX league: ", league);
     } else {
 			console.log('XXXXX leagueId is not an integer');
 		}

@@ -14,7 +14,6 @@ function App() {
   const [view, setView] = useState('league');
 
   const toggleView = () => {
-    console.log('XXXXX view: ', view);
     setView((prevView) => (prevView === "league" ? "team" : "league"));
   };
 
