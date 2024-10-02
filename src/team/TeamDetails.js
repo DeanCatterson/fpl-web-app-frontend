@@ -60,17 +60,15 @@ function TeamDetails({ teamDetails, chips }) {
 			<Table striped bordered hover className='teamDetailsTable'>
 				<thead>
 					<tr>
-						<th className='numericCell'>id</th>
 						<th>Team Name</th>
 						<th>Manager Name</th>
-						<th className='numericCell'>Overall Points</th>
-						<th className='numericCell'>Overall Rank</th>
-						<th className='numericCell'>Chips used</th>
+						<th className='numericCell'>Points</th>
+						<th className='numericCell'>Rank</th>
+						<th className='imageCell'>Chips used</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr>
-						<td className='numericCell'>{teamDetails.id}</td>
 						<td>{teamDetails.teamName}</td>
 						<td>{teamDetails.managerName}</td>
 						<td className='numericCell'>{teamDetails.points}</td>
