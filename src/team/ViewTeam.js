@@ -12,6 +12,7 @@ function ViewTeam() {
   const [team, setTeam] = useState({});
   const [teamId, setTeamId] = useState(0);
   const [chips, setChips] = useState([]);
+  const [history, setHistory] = useState([]);
 
 
   const handleTeamIdChange = (event) => {
@@ -68,9 +69,12 @@ function ViewTeam() {
 
       if (response.data && response.data.history && response.data.history.chips) {
         let chips = response.data.history.chips;
+        let history = response.data.history;
         console.log('YYYYY chips: ', chips);
+        console.log('YYYYY history: ', history);
 
         setChips(chips);
+        setHistory(history);
       }
 
     } else {
@@ -101,7 +105,7 @@ function ViewTeam() {
         </Form.Group>
       </Form>
 
-      { team.id > 0 ? <TeamDetails className="teamDetailsTable" teamDetails={team} chips={chips}/> : null }
+      { team.id > 0 ? <TeamDetails className="teamDetailsTable" teamDetails={team} chips={chips} history={history}/> : null }
     </div>
   );
 }

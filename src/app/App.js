@@ -39,7 +39,7 @@ function App() {
       <div className="col-half-width">
         <div className="viewSelector">
           <p className="viewSelectorLabel">Toggle view</p>
-          <ToggleSlider className="viewSelector" onToggle={ toggleView }/>
+          <ToggleSlider className="viewSelector" onToggle={ toggleView } barBackgroundColor="#06b7e7"/>
         </div>
       </div>
 

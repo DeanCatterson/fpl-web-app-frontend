@@ -1,6 +1,8 @@
 import './Team.css';
 
-import React from "react";
+import React, { useState } from "react";
+
+import TeamHistory from './ViewTeam';
 
 import Table from 'react-bootstrap/Table';
 
@@ -11,6 +13,14 @@ import wildcardIcon from '../assets/chip-icons/wildcardInactive-120.png';
 import mysteryIcon from '../assets/chip-icons/mysteryInactive-120.png';
 
 function TeamDetails({ teamDetails, chips }) {
+
+	const [historyView, setHistoryView] = useState(false);
+
+	const toggleHistoryView = (historyView) => {
+	  setHistoryView((historyView) => !historyView);
+	};
+
+	
 
 	const displayChipIcons = (chips) => {
 
@@ -57,6 +67,11 @@ function TeamDetails({ teamDetails, chips }) {
 	}
 
     return (
+			// TODO: enable history view
+			// historyView
+			// ?
+			// <TeamHistory />
+			// :
 			<Table striped bordered hover className='teamDetailsTable'>
 				<thead>
 					<tr>
@@ -70,7 +85,7 @@ function TeamDetails({ teamDetails, chips }) {
 				<tbody>
 					<tr>
 						<td>{teamDetails.teamName}</td>
-						<td>{teamDetails.managerName}</td>
+						<td><a onClick={ toggleHistoryView(historyView) } value={ teamDetails.managerName } /></td>
 						<td className='numericCell'>{teamDetails.points}</td>
 						<td className='numericCell'>{teamDetails.rank}</td>
 						<td className='numericCell'>{ displayChipIcons(chips) }</td>
