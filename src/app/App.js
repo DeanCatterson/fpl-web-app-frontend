@@ -4,10 +4,7 @@ import './App.css';
 
 import ViewTeam from '../team/ViewTeam';
 import ViewLeague from '../league/ViewLeague';
-import { Button } from "react-bootstrap";
 import { ToggleSlider }  from "react-toggle-slider";
-
-
 
 function App() {
 
@@ -35,7 +32,7 @@ function App() {
       <body className="body">
       <h1 className="applicationTitle">FPL Web App Frontend</h1>
 
-      {/* // TODO: fix styles for toggle & prompt */}
+      {/* // TODO: confirm styles for toggle & prompt */}
       <div className="col-half-width">
         <div className="viewSelector">
           <p className="viewSelectorLabel">Toggle view</p>
