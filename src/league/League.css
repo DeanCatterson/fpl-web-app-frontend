@@ -1,0 +1,31 @@
+.leagueIdContainer {
+    padding: 10px 0px;
+    font-family: monospace;
+}
+
+.enterLeagueNamePrompt {
+    padding: 10px 0px;
+    font-size: x-large;
+}
+
+.leagueIdForm {
+    font-size: medium;
+}
+
+.leagueIdField {
+    display: block;
+    margin: 0 auto 10px 0;
+    width: 25%;
+    min-width: 220px;
+}
+
+
+
+
+
+/* League Details table */
+
+.leagueDetailsTable{
+
+}
+
