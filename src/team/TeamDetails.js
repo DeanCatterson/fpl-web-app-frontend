@@ -85,7 +85,9 @@ function TeamDetails({ teamDetails, chips }) {
 				<tbody>
 					<tr>
 						<td>{teamDetails.teamName}</td>
-						<td><a onClick={ toggleHistoryView(historyView) } value={ teamDetails.managerName } /></td>
+						<td>{teamDetails.managerName}</td>
+						{/* TODO: Below causes infinite loop. */}
+						{/* <td><a onClick={ toggleHistoryView(historyView) } value={ teamDetails.managerName } /></td> */}
 						<td className='numericCell'>{teamDetails.points}</td>
 						<td className='numericCell'>{teamDetails.rank}</td>
 						<td className='numericCell'>{ displayChipIcons(chips) }</td>
