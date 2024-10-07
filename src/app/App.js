@@ -6,7 +6,6 @@ import ViewTeam from '../team/ViewTeam';
 import ViewLeague from '../league/ViewLeague';
 import { ToggleSlider }  from "react-toggle-slider";
 
-// TODO: refactor to move from functional to class based components
 function App() {
 
   const [view, setView] = useState('league');
@@ -15,14 +14,6 @@ function App() {
     setView((prevView) => (prevView === "league" ? "team" : "league"));
   };
 
-  function renderSwitch(view) {
-    switch(view) {
-      case 'team':
-        return <ViewTeam className="teamViewContainer"/>;
-      default:
-        return <ViewLeague className="leagueViewContainer"/>;
-    }
-  }
 
   return (
     <div className="applicationContainer">
@@ -40,9 +31,6 @@ function App() {
           <ToggleSlider className="viewSelector" onToggle={ toggleView } barBackgroundColor="#06b7e7"/>
         </div>
       </div>
-
-
-      {/* {renderSwitch(view)} */}
 
       { 
         view === 'league' 

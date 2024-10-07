@@ -63,13 +63,10 @@ function TeamDetails({ teamDetails, chips, history }) {
 				{ imagesJSX }
 			</div>
 		)
-		
-
 	}
 
     return (
 			<div>
-
 				<button onClick={toggleHistoryView}>
 					{historyView ? 'Hide History' : 'Show History'}
 				</button>
@@ -87,9 +84,7 @@ function TeamDetails({ teamDetails, chips, history }) {
 					<tbody>
 						<tr>
 							<td>{teamDetails.teamName}</td>
-							<td>{teamDetails.managerName}</td>
-							{/* TODO: Below causes infinite loop. */}
-							{/* <td><a onClick={ toggleHistoryView() } value={ teamDetails.managerName } /></td> */}
+							<td onClick={ toggleHistoryView }>{ teamDetails.managerName }</td>
 							<td className='numericCell'>{teamDetails.points}</td>
 							<td className='numericCell'>{teamDetails.rank}</td>
 							<td className='numericCell'>{ displayChipIcons(chips) }</td>
