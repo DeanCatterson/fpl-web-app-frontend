@@ -2,7 +2,7 @@ import './Team.css';
 
 import React, { useState } from "react";
 
-import TeamHistory from './ViewTeam';
+import TeamHistory from './TeamHistory';
 
 import Table from 'react-bootstrap/Table';
 
@@ -12,12 +12,13 @@ import freeHitIcon from '../assets/chip-icons/freehitInactive-120.png';
 import wildcardIcon from '../assets/chip-icons/wildcardInactive-120.png';
 import mysteryIcon from '../assets/chip-icons/mysteryInactive-120.png';
 
-function TeamDetails({ teamDetails, chips }) {
-
+function TeamDetails({ teamDetails, chips, history }) {
+		
 	const [historyView, setHistoryView] = useState(false);
 
-	const toggleHistoryView = (historyView) => {
-	  setHistoryView((historyView) => !historyView);
+	const toggleHistoryView = () => {
+		setHistoryView((view) => !view);
+		console.log('XXXXX view has been changed to ', historyView)
 	};
 
 	
@@ -67,33 +68,39 @@ function TeamDetails({ teamDetails, chips }) {
 	}
 
     return (
-			// TODO: enable history view
-			// historyView
-			// ?
-			// <TeamHistory />
-			// :
-			<Table striped bordered hover className='teamDetailsTable'>
-				<thead>
-					<tr>
-						<th>Team Name</th>
-						<th>Manager Name</th>
-						<th className='numericCell'>Points</th>
-						<th className='numericCell'>Rank</th>
-						<th className='imageCell'>Chips used</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>{teamDetails.teamName}</td>
-						<td>{teamDetails.managerName}</td>
-						{/* TODO: Below causes infinite loop. */}
-						{/* <td><a onClick={ toggleHistoryView(historyView) } value={ teamDetails.managerName } /></td> */}
-						<td className='numericCell'>{teamDetails.points}</td>
-						<td className='numericCell'>{teamDetails.rank}</td>
-						<td className='numericCell'>{ displayChipIcons(chips) }</td>
-					</tr>
-				</tbody>
-			</Table>
+			<div>
+
+				<button onClick={toggleHistoryView}>
+					{historyView ? 'Hide History' : 'Show History'}
+				</button>
+
+				<Table striped bordered hover className='teamDetailsTable'>
+					<thead>
+						<tr>
+							<th>Team Name</th>
+							<th>Manager Name</th>
+							<th className='numericCell'>Points</th>
+							<th className='numericCell'>Rank</th>
+							<th className='imageCell'>Chips used</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{teamDetails.teamName}</td>
+							<td>{teamDetails.managerName}</td>
+							{/* TODO: Below causes infinite loop. */}
+							{/* <td><a onClick={ toggleHistoryView() } value={ teamDetails.managerName } /></td> */}
+							<td className='numericCell'>{teamDetails.points}</td>
+							<td className='numericCell'>{teamDetails.rank}</td>
+							<td className='numericCell'>{ displayChipIcons(chips) }</td>
+						</tr>
+					</tbody>
+				</Table>
+
+				{historyView ? <TeamHistory /> : null}
+
+			</div>
+
     );
 }
 
