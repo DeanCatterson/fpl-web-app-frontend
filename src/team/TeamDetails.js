@@ -92,7 +92,7 @@ function TeamDetails({ teamDetails, chips, history }) {
 					</tbody>
 				</Table>
 
-				{historyView ? <TeamHistory /> : null}
+				{historyView ? <TeamHistory history={history} /> : null}
 
 			</div>
 
