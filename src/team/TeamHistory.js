@@ -1,8 +1,6 @@
 import './Team.css';
 
-import React, { useState } from "react";
-
-import Table from 'react-bootstrap/Table';
+import React from "react";
 
 
 function TeamHistory({ history }) {
@@ -22,7 +20,7 @@ function TeamHistory({ history }) {
                     ?
                         <div>
                             <h2>All time</h2>
-                            <p> Best yearly finish: {history.highestYearlyFinishRank} in {history.highestYearlyFinishRankSeason}</p>
+                            <p> Best yearly finish: rank {history.highestYearlyFinishRank} in {history.highestYearlyFinishRankSeason}</p>
                             <p> Best yearly points: {history.highestYearlyFinishPoints} in {history.highestYearlyFinishPointsSeason}</p>
                             <p> Average yearly rank: {history.averageYearlyRank} </p>
                             <p> Average yearly points: {history.averageYearlyPoints} </p>
